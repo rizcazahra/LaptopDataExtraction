@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+  pgdatabase:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD= #Please fill in the 'POSTGRES_PASSWORD' with your respective PostgreSQL password
+      - POSTGRES_DB=laptop_data
+    volumes:
+      - /Users/rizcazahra/Documents/WebScrapping/pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    volumes:
+      - /Users/rizcazahra/Documents/WebScrapping/pgadmin-data:/var/lib/pgadmin
+    ports:
+      - "8080:80"
